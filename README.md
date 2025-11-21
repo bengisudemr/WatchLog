@@ -1,150 +1,246 @@
-# WatchLog – Dizi/Film Günlüğü
+# 🎬 WatchLog
 
-SwiftUI ve MVVM mimarisi kullanılarak geliştirilmiş bir iOS uygulaması.
+<div align="center">
 
-## Özellikler
+![iOS](https://img.shields.io/badge/iOS-16.0+-blue.svg)
+![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-4.0-green.svg)
+![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 
-- ✅ Film ve dizi ekleme
-- ✅ İçerik listesi görüntüleme
-- ✅ Detay ekranı
-- ✅ İçerik silme
-- ✅ UserDefaults ile veri saklama
-- ✅ MVVM mimarisi
-- ✅ SwiftUI bileşenleri
+**İzlediğiniz film ve dizileri takip edin, puanlayın ve notlar alın!**
 
-## Proje Yapısı
+[Özellikler](#-özellikler) • [Kurulum](#-kurulum) • [Kullanım](#-kullanım) • [Ekran Görüntüleri](#-ekran-görüntüleri) • [Teknik Detaylar](#-teknik-detaylar)
+
+</div>
+
+---
+
+## 📱 Hakkında
+
+WatchLog, SwiftUI ve MVVM mimarisi kullanılarak geliştirilmiş modern bir iOS uygulamasıdır. İzlediğiniz film ve dizileri kaydedebilir, puanlayabilir, notlar ekleyebilir ve poster görselleri ekleyebilirsiniz.
+
+## ✨ Özellikler
+
+### 🎯 Temel Özellikler
+- ✅ **Film ve Dizi Ekleme**: Başlık, tür, puan ve not ile içerik ekleyin
+- ✅ **Poster Görseli**: Fotoğraf kütüphanenizden poster görseli seçin
+- ✅ **Puanlama Sistemi**: 0-10 arası slider ile puan verin
+- ✅ **Detaylı Görünüm**: Büyük poster, puan, notlar ve eklenme tarihi
+- ✅ **Düzenleme**: Mevcut içerikleri kolayca düzenleyin
+- ✅ **Silme**: Kaydırma hareketi veya detay ekranından silin
+- ✅ **Kalıcı Veri**: UserDefaults ile verileriniz güvenle saklanır
+
+### 🎨 Kullanıcı Arayüzü
+- Modern ve şık gradient arka planlar
+- Renkli puan gösterimi (kırmızı → mavi)
+- Yıldız gösterimi ile görsel puanlama
+- Responsive tasarım
+- Smooth animasyonlar
+
+## 🚀 Kurulum
+
+### Gereksinimler
+- Xcode 15.0 veya üzeri
+- iOS 16.0 veya üzeri
+- Swift 5.0+
+
+### Adımlar
+
+1. **Repository'yi klonlayın**
+   ```bash
+   git clone https://github.com/bengisudemr/WatchLog.git
+   cd WatchLog
+   ```
+
+2. **Xcode'da açın**
+   ```bash
+   open WatchLog.xcodeproj
+   ```
+
+3. **Cihaz seçin**
+   - Xcode'da üst kısımdan hedef cihazınızı seçin (Simulator veya fiziksel cihaz)
+
+4. **Çalıştırın**
+   - `⌘ + R` tuşlarına basın veya Run butonuna tıklayın
+
+### Fiziksel Cihaza Yükleme
+
+1. iPhone'unuzu Mac'inize bağlayın
+2. Xcode'da cihazınızı seçin
+3. **Signing & Capabilities** bölümünden Apple Developer hesabınızı seçin
+4. Run butonuna basın
+5. İlk yüklemede: **Ayarlar > Genel > VPN ve Cihaz Yönetimi** bölümünden geliştirici sertifikanıza güvenin
+
+## 📖 Kullanım
+
+### Ana Ekran (MovieListView)
+- Tüm eklenen film ve dizilerinizi görüntüleyin
+- Her kartta poster, başlık, tür ve puan gösterilir
+- **+** butonu ile yeni içerik ekleyin
+- Kartlara dokunarak detay ekranına gidin
+- Sola kaydırarak içerik silin
+
+### Yeni İçerik Ekleme (AddMovieView)
+1. Ana ekranda **+** butonuna tıklayın
+2. **Poster Seç**: Fotoğraf kütüphanenizden poster görseli seçin
+3. **Başlık**: Film veya dizi adını girin
+4. **Tür**: Film veya Dizi seçin
+5. **Puan**: Slider ile 0-10 arası puan verin
+6. **Not**: İsteğe bağlı notlarınızı yazın
+7. **Kaydet** butonuna tıklayın
+
+### Detay Ekranı (MovieDetailView)
+- Büyük poster görseli
+- Başlık ve tür bilgisi
+- Büyük puan gösterimi ve yıldızlar
+- Kullanıcı notları
+- Eklenme tarihi
+- **Düzenle** butonu ile içeriği düzenleyin
+- **Sil** butonu ile içeriği silin
+
+### Düzenleme (EditMovieView)
+1. Detay ekranından **Düzenle** butonuna tıklayın
+2. İstediğiniz alanları güncelleyin
+3. **Kaydet** butonuna tıklayın
+
+## 🖼️ Ekran Görüntüleri
+
+> 📸 Ekran görüntüleri yakında eklenecek
+
+## 🏗️ Proje Yapısı
 
 ```
 WatchLog/
-├── WatchLogApp.swift      # Ana uygulama dosyası
-├── Movie.swift            # Model (Movie ve MovieType)
-├── MovieViewModel.swift   # ViewModel (Veri yönetimi)
-├── MovieListView.swift    # Ana liste ekranı
-├── AddMovieView.swift     # Yeni içerik ekleme formu
-└── MovieDetailView.swift  # Detay ekranı
+├── WatchLogApp.swift          # Ana uygulama giriş noktası
+├── Movie.swift                 # Model: Movie ve MovieType
+├── MovieViewModel.swift        # ViewModel: Veri yönetimi ve iş mantığı
+├── MovieListView.swift         # Ana liste ekranı
+├── AddMovieView.swift          # Yeni içerik ekleme formu
+├── EditMovieView.swift         # İçerik düzenleme formu
+├── MovieDetailView.swift       # Detay ekranı
+├── ImagePicker.swift           # Fotoğraf seçici bileşeni
+├── Info.plist                  # Uygulama yapılandırması
+└── README.md                   # Bu dosya
 ```
 
-## Xcode'da Proje Oluşturma
+## 🏛️ Mimari
 
-### 1. Yeni Proje Oluştur
-1. Xcode'u açın
-2. **File > New > Project** seçin
-3. **iOS > App** şablonunu seçin
-4. Proje bilgilerini doldurun:
-   - **Product Name**: `WatchLog`
-   - **Interface**: `SwiftUI`
-   - **Language**: `Swift`
-   - **Use Core Data**: Hayır (seçmeyin)
-   - **Include Tests**: İsteğe bağlı
+### MVVM (Model-View-ViewModel)
 
-### 2. Dosyaları Projeye Ekle
-1. Proje oluşturulduktan sonra, oluşturulan `WatchLog` klasörüne gidin
-2. Bu dosyaları Xcode projesine sürükleyip bırakın:
-   - `Movie.swift`
-   - `MovieViewModel.swift`
-   - `MovieListView.swift`
-   - `AddMovieView.swift`
-   - `MovieDetailView.swift`
-
-3. **WatchLogApp.swift** dosyasını oluşturulan `WatchLogApp.swift` dosyası ile değiştirin
-
-### 3. Proje Yapılandırması
-1. Xcode'da proje ayarlarını kontrol edin
-2. **Deployment Target**: iOS 16.0 veya üzeri (SwiftUI NavigationStack için)
-3. Eğer iOS 16.0'dan düşük bir sürüm kullanıyorsanız, `NavigationStack` yerine `NavigationView` kullanabilirsiniz
-
-## Kullanım
-
-### Ana Ekran
-- Tüm eklenen film ve diziler listelenir
-- Her satırda başlık, tür ve puan gösterilir
-- Sağ üst köşedeki **+** butonu ile yeni içerik eklenebilir
-- Kaydırma hareketi ile içerik silinebilir
-
-### Yeni İçerik Ekleme
-1. Ana ekranda **+** butonuna tıklayın
-2. Form alanlarını doldurun:
-   - **Başlık**: Film veya dizi adı
-   - **Tür**: Film veya Dizi seçimi
-   - **Puan**: 0-10 arası slider ile seçim
-   - **Not**: İsteğe bağlı not alanı
-3. **Kaydet** butonuna tıklayın
-
-### Detay Ekranı
-- Liste satırına tıklayarak detay ekranına gidin
-- Tüm bilgiler (başlık, tür, puan, not, tarih) görüntülenir
-- **Sil** butonu ile içerik silinebilir
-
-## MVVM Mimarisi
-
-### Model (Movie.swift)
+#### Model (`Movie.swift`)
 - `Movie`: Film/dizi bilgilerini tutan struct
-- `MovieType`: İçerik türünü belirten enum
-- Codable protokolü ile UserDefaults'a kaydedilebilir
+  - `id`: Benzersiz kimlik (UUID)
+  - `title`: Başlık
+  - `type`: Tür (Film/Dizi)
+  - `rating`: Puan (0.0-10.0)
+  - `note`: Kullanıcı notu
+  - `createdAt`: Oluşturma tarihi
+  - `posterImageData`: Poster görseli (Data formatında)
+- `MovieType`: İçerik türü enum'ı
+- `Codable` protokolü ile UserDefaults'a kaydedilebilir
 
-### ViewModel (MovieViewModel.swift)
-- `MovieViewModel`: Veri yönetimini sağlayan class
-- `@Published` ile SwiftUI'a veri değişikliklerini bildirir
-- UserDefaults ile veri kalıcılığı sağlar
-- CRUD işlemleri (Create, Read, Update, Delete)
+#### ViewModel (`MovieViewModel.swift`)
+- `@Published var movies`: Film listesi
+- `loadMovies()`: UserDefaults'tan veri yükleme
+- `saveMovies()`: UserDefaults'a veri kaydetme
+- `addMovie(_:)`: Yeni film ekleme
+- `updateMovie(_:)`: Film güncelleme
+- `deleteMovie(_:)`: Film silme
 
-### Views
-- **MovieListView**: Ana liste ekranı
-- **AddMovieView**: Yeni içerik ekleme formu
-- **MovieDetailView**: Detay ekranı
-- Her view, ViewModel'i `@ObservedObject` veya `@StateObject` ile kullanır
+#### Views
+- **MovieListView**: Ana liste ekranı (`@StateObject` ile ViewModel oluşturur)
+- **AddMovieView**: Yeni içerik ekleme (`@ObservedObject` ile ViewModel alır)
+- **EditMovieView**: İçerik düzenleme (`@ObservedObject` ile ViewModel alır)
+- **MovieDetailView**: Detay ekranı (`@ObservedObject` ile ViewModel alır)
 
-## SwiftUI Bileşenleri
+## 🔧 Teknik Detaylar
 
-- **NavigationStack**: Navigasyon yönetimi
-- **List**: Liste görünümü
-- **Form**: Form görünümü
-- **TextField**: Metin girişi
-- **Picker**: Seçim yapma (segmented style)
-- **Slider**: Puan seçimi
-- **TextEditor**: Çok satırlı metin girişi
-- **Button**: Buton işlevleri
+### Kullanılan Teknolojiler
+- **SwiftUI**: Modern UI framework
+- **MVVM**: Mimari desen
+- **UserDefaults**: Veri saklama
+- **UIImagePickerController**: Fotoğraf seçimi
+- **NavigationStack**: Navigasyon yönetimi (iOS 16+)
 
-## Veri Saklama
+### SwiftUI Bileşenleri
+- `NavigationStack`: Navigasyon
+- `List`: Liste görünümü
+- `Form`: Form görünümü
+- `TextField`: Metin girişi
+- `Picker`: Seçim (segmented style)
+- `Slider`: Puan seçimi
+- `TextEditor`: Çok satırlı metin
+- `ImagePicker`: Özel fotoğraf seçici
+- `LinearGradient`: Gradient arka planlar
 
-- UserDefaults kullanılarak veriler kalıcı olarak saklanır
-- JSONEncoder/JSONDecoder ile Movie array'i encode/decode edilir
+### Veri Saklama
+- **UserDefaults**: JSONEncoder/JSONDecoder ile Movie array'i saklanır
 - Veriler uygulama kapatıldığında bile korunur
+- Küçük-orta ölçekli veri setleri için uygun
 
-## Öğrenme Notları
+### Önemli Notlar
+- **@StateObject vs @ObservedObject**:
+  - `@StateObject`: View'ın sahibi olduğu ViewModel için
+  - `@ObservedObject`: Başka bir view'dan geçirilen ViewModel için
+- **NavigationStack**: iOS 16+ için kullanılır (iOS 15 için `NavigationView`)
+- **ImagePicker**: UIKit'in `UIImagePickerController`'ını SwiftUI'da kullanmak için wrapper
 
-### @StateObject vs @ObservedObject
-- `@StateObject`: View'ın sahibi olduğu ve yaşam döngüsünü yönettiği ViewModel için
-- `@ObservedObject`: Başka bir view'dan geçirilen ViewModel için
+## 🎨 Tasarım Özellikleri
 
-### NavigationStack
-- iOS 16+ için kullanılır
-- Daha modern navigasyon yönetimi sağlar
-- iOS 15 ve öncesi için `NavigationView` kullanılabilir
+- **Renk Paleti**: Mor, mavi ve pembe tonları
+- **Gradient Arka Planlar**: Her ekranda farklı gradient kombinasyonları
+- **Puan Renkleri**:
+  - 0-3: Kırmızı 🔴
+  - 3-5: Turuncu 🟠
+  - 5-7: Sarı 🟡
+  - 7-9: Yeşil 🟢
+  - 9-10: Mavi 🔵
+- **Yuvarlatılmış Köşeler**: Modern görünüm için
+- **Gölgeler**: Derinlik hissi için
 
-### UserDefaults
-- Küçük veri setleri için uygun
-- Key-value store
-- JSON encoding/decoding ile kompleks veri yapıları saklanabilir
+## 🚧 Gelecek Özellikler
 
-## Geliştirme Notları
+- [ ] Arama özelliği
+- [ ] Filtreleme (türe göre, puana göre)
+- [ ] Sıralama (tarihe göre, puana göre, alfabetik)
+- [ ] İstatistikler (toplam film/dizi sayısı, ortalama puan)
+- [ ] Kategoriler/Etiketler
+- [ ] İzleme durumu (İzlendi, İzlenecek, Yarım kaldı)
+- [ ] Favoriler
+- [ ] Export/Import özelliği
+- [ ] Dark mode optimizasyonları
+- [ ] Core Data veya SwiftData entegrasyonu
 
-- Kodlar yorumlarla açıklanmıştır
-- MVVM mimarisi doğru şekilde uygulanmıştır
-- SwiftUI best practices kullanılmıştır
-- Türkçe karakter desteği mevcuttur
+## 🤝 Katkıda Bulunma
 
-## Sonraki Adımlar
+Katkılarınızı bekliyoruz! Lütfen:
+1. Fork edin
+2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Commit edin (`git commit -m 'Add some amazing feature'`)
+4. Push edin (`git push origin feature/amazing-feature`)
+5. Pull Request açın
 
-İsterseniz şu özellikleri ekleyebilirsiniz:
-- İçerik düzenleme (edit) özelliği
-- Filtreleme (türe göre, puana göre)
-- Sıralama (tarihe göre, puana göre)
-- Arama özelliği
-- Görsel ekleme (poster)
-- Daha gelişmiş veri saklama (Core Data veya SwiftData)
+## 📝 Lisans
 
-## Lisans
+Bu proje eğitim amaçlıdır ve MIT lisansı altında lisanslanmıştır.
 
-Bu proje eğitim amaçlıdır.
+## 👤 Geliştirici
 
+**Bengisu Demir**
+- GitHub: [@bengisudemr](https://github.com/bengisudemr)
+- Email: bengisudemrr@gmail.com
+
+## 🙏 Teşekkürler
+
+- SwiftUI topluluğu
+- Tüm katkıda bulunanlar
+
+---
+
+<div align="center">
+
+⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!
+
+Made with ❤️ using SwiftUI
+
+</div>
